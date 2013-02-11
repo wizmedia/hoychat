@@ -1,0 +1,36 @@
+<template name="profile">
+	<div id="profile" class="modal hide fade">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<h3>Edit Profile</h3>
+		</div>
+		<div class="modal-body">
+			<form id="profileForm" class="form-horizontal">
+				<div class="control-group">
+					<label class="control-label" for="fullName">Full Name</label>
+					<div class="controls">
+						<input type="text" id="fullName" placeholder="Full Name" name="fullname" value="{{currentUser.profile.fullname}}">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="mentionShortcut">Mention Shortcut</label>
+					<div class="controls">
+					<div class="control input-prepend">
+  						<span class="add-on">@</span>
+						<input type="text" id="mentionShortcut" class="input-small" placeholder="nickname" name="mention" value="{{currentUser.profile.mention}}">
+					</div>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="jobTitle">Job Title</label>
+					<div class="controls">
+						<input type="text" id="jobTitle" placeholder="Job Title" name="jobtitle" value="{{currentUser.profile.jobtitle}}">
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="modal-footer">
+			<a href="#" id="saveProfile" class="btn btn-primary" data-dismiss="modal">Save</a>
+		</div>
+	</div>
+</template>

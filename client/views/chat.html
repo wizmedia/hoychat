@@ -1,0 +1,29 @@
+<template name="chat">
+<div id="conversation">
+	<table class="table table-striped table-bordered">
+		<tbody>
+			<tr>
+				<td colspan="2">
+					Welcome, earthlings!
+				</td>
+			</tr>
+			{{#each conversations}}
+			<tr>
+				<td class="span2 avatar">
+					{{user.fullname}}
+				</td>
+				<td class="span10">
+					{{statement}}
+				</td>
+			</tr>
+			{{/each}}
+		</tbody>
+	</table>
+	<div id="chat">
+		<form>
+		<textarea class="input-xxlarge" rows="3" name="statement"></textarea>
+		<button class="btn btn-large" type="button">Send</button>
+		</form>
+	</div>
+</div>
+</template>

@@ -15,5 +15,13 @@ Rooms.allow({
 		}
 
 		return false;
+	},
+
+	update: function(){
+		if(Meteor.user()){
+			return true;
+		}
+
+		return false;
 	}
 });

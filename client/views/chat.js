@@ -32,7 +32,7 @@ Template.chat.helpers({
 		urls.forEach(function(url){
 			statement = statement.replace(url, '<a href="http://'+url.replace('http://', '')+'" target="new">'+url+'</a>');
 		});
-		console.log(statement);
+
 		return statement;
 	}
 });

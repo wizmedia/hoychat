@@ -8,7 +8,32 @@
 </div>
 {{#if notLobby}}
 <div>
-	<a href="#" id="exit-room"><i class="icon-remove"></i>Exit Room</a>
+	<a href="#invite-users-window" data-toggle="modal" id="invite-users"><i class="icon-hand-right"></i> Include Users</a><br />
+	<a href="#" id="exit-room"><i class="icon-remove"></i> Exit Room</a>
 </div>
+{{>invite}}
 {{/if}}
+</template>
+
+<template name="invite">
+	<div id="invite-users-window" class="modal hide fade">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<h3>Shove Users into this room</h3>
+		</div>
+		<div class="modal-body">
+			<form id="invite-users-form">
+			{{#each users}}
+				{{#if selectable}}
+					<label class="checkbox">
+      					<input type="checkbox" class="checkbox" value="{{_id}}"> {{profile.fullname}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    				</label>
+    			{{/if}}
+			{{/each}}
+			</form>
+		</div>
+		<div class="modal-footer">
+			<a href="#" id="invite-users-button" class="btn btn-primary" data-dismiss="modal">Put them Here</a>
+		</div>
+	</div>
 </template>

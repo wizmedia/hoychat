@@ -5,3 +5,11 @@ Meteor.publish('conversations', function(){
 Meteor.publish('rooms', function(){
 	return Rooms.find();
 });
+
+Meteor.publish('allusers', function(){
+	return Meteor.users.find()
+});
+
+Meteor.startup(function(){
+
+})

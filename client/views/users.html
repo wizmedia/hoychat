@@ -5,8 +5,10 @@
 		<li><a href="#">@{{profile.mention}}</a></li>
 	{{/each}}
 	</ul>
-	<div>
-		<a href="#"><i class="icon-remove"></i>Exit Room</a>
-	</div>
 </div>
+{{#if notLobby}}
+<div>
+	<a href="#" id="exit-room"><i class="icon-remove"></i>Exit Room</a>
+</div>
+{{/if}}
 </template>

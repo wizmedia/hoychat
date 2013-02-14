@@ -1,9 +1,14 @@
+Meteor.subscribe('rooms');
 Template.rooms.rooms = function(){
-	return Rooms.find();
+	return Rooms.find({'users': Meteor.userId()});
 }
 
-Meteor.startup(function() {
-	$('#lobby').parent('li').addClass('active');
+Template.rooms.helpers({
+	'is_active': function(id){
+		if(Session.equals('room', id)){
+			return 'active';
+		}
+	}
 });
 
 Template.rooms.events({
@@ -12,17 +17,21 @@ Template.rooms.events({
 		if(name != '' && name != null){
 			Rooms.insert({
 				'name': name,
-				'users': [Meteor.userId]
+				'users': [Meteor.userId()]
 			});
 		}
 	},
 	'click .room': function(el){
 		Session.set('room', el.target.id);
-		$('.room').parent('li').removeClass('active');
-		$('#'+Session.get('room')).parent('li').addClass('active');
 	},
 
 	'click #logout': function(){
 		Meteor.logout();
+	}
+});
+
+Meteor.startup(function(){
+	if(Meteor.user()){
+		Session.set('room', 'lobby');
 	}
 });

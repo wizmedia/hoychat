@@ -7,12 +7,16 @@
 
 	<div class="container-fluid">
 		<div class="row-fluid">
+			{{#if currentUser}}
 			<div class="span10">
 			{{> chat }}
 			</div>
 			<div class="span2">
 			{{> users }}
 			</div>
+			{{else}}
+			<h1>Welcome to our chat room. Log in so you can chat.</h1>
+			{{/if}}
 		</div>
 	</div>
 	{{> profile}}

@@ -13,7 +13,14 @@
 					{{user.fullname}}
 				</td>
 				<td class="span10">
-					{{statement}}
+					{{{linkify statement}}}
+
+					{{#if html}}
+						<br>
+						<div>
+						{{{html}}}
+						</div>
+					{{/if}}
 				</td>
 			</tr>
 			{{/each}}

@@ -3,15 +3,17 @@
 		<div class="navbar-inner">
 			<div class="container">
 				<a class="brand" href="#">WIZMEDIA Chat Room</a>
+				{{#if currentUser}}
 				<div class="nav-collapse">
 					<ul class="nav" id="rooms">
-						<li><a class="room" href="#" id="lobby">Tsismisan</a></li>
+						<li class="{{is_active 'lobby'}}"><a class="room" href="#" id="lobby">Tsismisan</a></li>
 						{{#each rooms}}
-						<li><a href="#" class="room" id="{{_id}}">{{name}}</a></li>
+						<li class="{{is_active _id}}"><a href="#" class="room" id="{{_id}}">{{name}}</a></li>
 						{{/each}}
 						<li><a href="#" id="add"><i class="icon-plus"></i></a></li>
 					</ul>
 				</div><!-- /.nav-collapse -->
+				{{/if}}
 
 				{{#if currentUser}}
 					<ul class="nav pull-right">

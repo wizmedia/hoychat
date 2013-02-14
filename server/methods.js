@@ -11,7 +11,7 @@ Meteor.methods({
 					key: Embedly.key
 				}
 			});
-			console.log(response);
+
 			formatted = '<div>' + JSON.parse(response.content).html + '</div>';
 		});
 

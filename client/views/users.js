@@ -76,5 +76,7 @@ Template.invite.events({
 		Rooms.update(room._id, {$set:{
 			users: _.uniq(room.users.concat(Template.invite.invited))
 		}});
+
+		Template.invite.invited = [];
 	}
 });

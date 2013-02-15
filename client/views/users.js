@@ -13,7 +13,7 @@ Template.users.users = function(){
 
 Template.invite.users = function(){
 	if(!Session.equals('room', 'lobby')){
-		return Meteor.users.find({});
+		return Meteor.users.find();
 	}
 }
 
@@ -27,12 +27,15 @@ Template.invite.helpers({
 	selectable: function(){
 		var room = Rooms.findOne(Session.get('room'));
 
-		return (
-			// User is not the same with current user
-			this._id != Meteor.userId() &&
-			// User is not yet in the room
-			!_.contains(room.users, this._id)
-		);
+		if(room){
+			return (
+				// User is not the same with current user
+				this._id != Meteor.userId() &&
+				// User is not yet in the room
+				!_.contains(room.users, this._id)
+			);
+		}
+		return false;
 	},
 
 });

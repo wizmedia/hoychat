@@ -7,7 +7,7 @@ Meteor.publish('rooms', function(){
 });
 
 Meteor.publish('allusers', function(){
-	return Meteor.users.find()
+	return Meteor.users.find({});
 });
 
 Meteor.startup(function(){

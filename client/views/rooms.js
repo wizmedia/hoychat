@@ -1,4 +1,5 @@
 Meteor.subscribe('rooms');
+
 Template.rooms.rooms = function(){
 	return Rooms.find({'users': Meteor.userId()});
 }
@@ -10,6 +11,12 @@ Template.rooms.helpers({
 		}
 	}
 });
+
+Template.rooms.rendered = function(){
+	if(Meteor.user() && !Session.get('room')){
+		Session.set('room', 'lobby');
+	}
+}
 
 Template.rooms.events({
 	'click #add': function(){
@@ -27,11 +34,5 @@ Template.rooms.events({
 
 	'click #logout': function(){
 		Meteor.logout();
-	}
-});
-
-Meteor.startup(function(){
-	if(Meteor.user()){
-		Session.set('room', 'lobby');
 	}
 });
